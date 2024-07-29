@@ -13,13 +13,7 @@ declare(strict_types=1);
 namespace L1n6yun\HyperfJwt;
 
 use Hyperf\Context\ApplicationContext;
-use Psr\Container\ContainerExceptionInterface;
-use Psr\Container\NotFoundExceptionInterface;
 
-/**
- * @throws ContainerExceptionInterface
- * @throws NotFoundExceptionInterface
- */
 function auth(?string $provider = null)
 {
     $authManager = ApplicationContext::getContainer()->get(AuthManager::class);
