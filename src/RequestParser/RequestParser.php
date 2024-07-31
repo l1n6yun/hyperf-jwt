@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace L1n6yun\HyperfJwt\RequestParser;
 
-use L1n6yun\HyperfJwt\Exceptions\JwtException;
+use L1n6yun\HyperfJwt\Exceptions\TokenInvalidException;
 use L1n6yun\HyperfJwt\RequestParser\Handlers\AuthHeaders;
 use L1n6yun\HyperfJwt\RequestParser\Handlers\Cookies;
 use Psr\Http\Message\ServerRequestInterface;
@@ -32,6 +32,6 @@ class RequestParser
                 return $token;
             }
         }
-        throw new JwtException('A token is required');
+        throw new TokenInvalidException('Token not found');
     }
 }

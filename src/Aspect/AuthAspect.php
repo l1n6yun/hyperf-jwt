@@ -18,6 +18,8 @@ use Hyperf\Di\Aop\ProceedingJoinPoint;
 use Hyperf\Di\Exception\Exception;
 use L1n6yun\HyperfJwt\Annotation\Auth;
 use L1n6yun\HyperfJwt\AuthManager;
+use L1n6yun\HyperfJwt\Exceptions\TokenBlacklistedException;
+use L1n6yun\HyperfJwt\Exceptions\TokenInvalidException;
 use L1n6yun\HyperfJwt\Exceptions\UnauthorizedException;
 
 #[Aspect]
@@ -40,9 +42,12 @@ class AuthAspect extends AbstractAspect
 
         $provider = $authAnnotation->value;
 
-        if (! $this->authManager->setProvider($provider)->getPayload()) {
+        try {
+            $this->authManager->setProvider($provider)->getPayload();
+        } catch (TokenBlacklistedException|TokenInvalidException) {
             throw new UnauthorizedException('not logged in');
         }
+
         return $proceedingJoinPoint->process();
     }
 }
