@@ -66,7 +66,7 @@ use function L1n6yun\HyperfJwt\auth;
 // 模型实现了 JwtSubjectInterface 接口
 class UserModel implements JwtSubjectInterface{
     public function getJwtIdentifier(){
-        return $this->id;
+        return (string)$this->id;
     };
     
     public static function retrieveById($key){

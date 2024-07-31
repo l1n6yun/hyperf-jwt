@@ -47,7 +47,7 @@ class AuthManager
         return $this->manager->getToken($payload);
     }
 
-    public function check(): int
+    public function check(): string
     {
         $payload = $this->getPayload();
 

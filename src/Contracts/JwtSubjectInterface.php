@@ -14,7 +14,7 @@ namespace L1n6yun\HyperfJwt\Contracts;
 
 interface JwtSubjectInterface
 {
-    public function getJwtIdentifier(): int;
+    public function getJwtIdentifier(): string;
 
     public static function retrieveById($key): ?JwtSubjectInterface;
 }
