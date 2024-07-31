@@ -1,5 +1,8 @@
 # Hyperf JWT 组件
 
+[![PHPUnit](https://github.com/l1n6yun/hyperf-jwt/actions/workflows/test.yml/badge.svg)](https://github.com/l1n6yun/hyperf-jwt/actions/workflows/test.yml)
+[![Release](https://github.com/l1n6yun/hyperf-jwt/actions/workflows/release.yml/badge.svg)](https://github.com/l1n6yun/hyperf-jwt/actions/workflows/release.yml)
+
 ## 安装
 
 ```shell
@@ -10,10 +13,6 @@ composer require l1n6yun/hyperf-jwt
 
 ```shell
 php bin/hyperf.php vendor:publish l1n6yun/hyperf-jwt
-
-php bin/hyperf.php gen:jwt-secret
-
-#php bin/hyperf.php gen:jwt-public-key
 ```
 
 > 文件位于 `config/autoload/jwt.php`。
@@ -43,6 +42,14 @@ return [
     ],
 ];
 
+```
+
+### 生成秘钥
+
+```shell
+php bin/hyperf.php gen:jwt-secret
+
+#php bin/hyperf.php gen:jwt-public-key
 ```
 
 ## 使用
@@ -101,5 +108,19 @@ class TestController extends AbstractController
 }
 ```
 
+### 异常助理
 
+使用 `L1n6yun\HyperfJwt\Exceptions\Handlers\AuthExceptionHandler` ，此步骤可选，开发者可以自行捕捉 `AuthException` 和 `UnauthorizedException` 进行处理
 
+```php
+# config/autoload/exceptions.php
+use L1n6yun\HyperfJwt\Exceptions\Handlers\AuthExceptionHandler
+
+return [
+    'handler' => [
+        'http' => [
+            AuthExceptionHandler::class,
+        ],
+    ],
+];
+```
