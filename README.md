@@ -1,5 +1,8 @@
 # Hyperf JWT 组件
 
+[![Latest Stable Version](https://poser.pugx.org/l1n6yun/hyperf-jwt/v/stable)](https://packagist.org/packages/l1n6yun/hyperf-jwt)
+[![Latest Unstable Version](https://poser.pugx.org/l1n6yun/hyperf-jwt/v/unstable)](https://packagist.org/packages/l1n6yun/hyperf-jwt)
+[![License](https://poser.pugx.org/l1n6yun/hyperf-jwt/license)](https://packagist.org/packages/l1n6yun/hyperf-jwt)
 [![PHPUnit](https://github.com/l1n6yun/hyperf-jwt/actions/workflows/test.yml/badge.svg)](https://github.com/l1n6yun/hyperf-jwt/actions/workflows/test.yml)
 [![Release](https://github.com/l1n6yun/hyperf-jwt/actions/workflows/release.yml/badge.svg)](https://github.com/l1n6yun/hyperf-jwt/actions/workflows/release.yml)
 
